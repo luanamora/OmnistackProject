@@ -26,7 +26,7 @@ function App() {
             </div>
 
             <div class="input-block">
-              <label htmlFor="longitude">longitude</label>
+              <label htmlFor="longitude">Longitude</label>
               <input name="longitude" id="longitude" required/>
             </div>
           </div>
