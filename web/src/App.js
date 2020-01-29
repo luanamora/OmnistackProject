@@ -2,6 +2,7 @@ import React from 'react';
 import "./global.css";
 import "./App.css";
 import "./Sidebar.css";
+import "./Main.css";
 function App() {
 
   return (
@@ -34,7 +35,19 @@ function App() {
         </form>
       </aside>
       <main>
-
+        <ul>
+          <li class="dev-item">
+            <header>
+              <img src="https://avatars2.githubusercontent.com/u/42422551?s=460&v=4" alt="Luana Mora"></img>
+              <div className="user-info">
+                <strong>Luana Mora</strong>
+                <span>ReactJS, React Native, Node.js</span>
+              </div>
+            </header>
+            <p>Uma biografia qualquer</p>
+            <a href="https://github.com/luanamora">Acessar Perfil no Github</a>
+          </li>
+        </ul>
       </main>
     </div>
   );
