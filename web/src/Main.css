@@ -10,6 +10,9 @@ main ul {
 }
 
 @media (max-width: 650px) {
+    main url {
+        grid-template-columns: 1fr;
+    }
     
 }
 
