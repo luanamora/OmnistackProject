@@ -13,7 +13,6 @@ main ul {
     main url {
         grid-template-columns: 1fr;
     }
-    
 }
 
 li.dev-item {
