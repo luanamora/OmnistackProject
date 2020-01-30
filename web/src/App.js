@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import api from "./services/api"
 import "./global.css";
 import "./App.css";
 import "./Sidebar.css";
@@ -7,7 +8,6 @@ import "./Main.css";
 function App() {
   const [github_username, setGithubUsername] = useState('');
   const [techs, setTechs] = useState('');
-
   const [latitude, setLatitude] = useState('');
   const [longitude, setLongitude] = useState('');
 
@@ -28,6 +28,17 @@ function App() {
     )
   }, []);
 
+  async function handleAddDev(e) {
+    e.preventDefault();
+
+    const response = await api.post('/devs', {
+      github_username,
+      techs,
+      latitude,
+      longitude,
+    })
+  }
+
   return (
     <div id="app">
       <aside>
@@ -46,7 +57,11 @@ function App() {
 
           <div className="input-block">
             <label htmlFor="techs">Tecnologias</label>
-            <input name="techs" id="techs" required/>
+            <input name="techs"
+             id="techs"
+             required
+             value={techs}
+             onChange={e => setTechs(e.target.value)}/>
           </div>
 
           <div className="input-group">
