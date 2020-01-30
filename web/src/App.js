@@ -47,6 +47,42 @@ function App() {
             <p>Uma biografia qualquer</p>
             <a href="https://github.com/luanamora">Acessar Perfil no Github</a>
           </li>
+
+          <li class="dev-item">
+            <header>
+              <img src="https://avatars2.githubusercontent.com/u/42422551?s=460&v=4" alt="Luana Mora"></img>
+              <div className="user-info">
+                <strong>Luana Mora</strong>
+                <span>ReactJS, React Native, Node.js</span>
+              </div>
+            </header>
+            <p>Uma biografia qualquer</p>
+            <a href="https://github.com/luanamora">Acessar Perfil no Github</a>
+          </li>
+
+          <li class="dev-item">
+            <header>
+              <img src="https://avatars2.githubusercontent.com/u/42422551?s=460&v=4" alt="Luana Mora"></img>
+              <div className="user-info">
+                <strong>Luana Mora</strong>
+                <span>ReactJS, React Native, Node.js</span>
+              </div>
+            </header>
+            <p>Uma biografia qualquer</p>
+            <a href="https://github.com/luanamora">Acessar Perfil no Github</a>
+          </li>
+
+          <li class="dev-item">
+            <header>
+              <img src="https://avatars2.githubusercontent.com/u/42422551?s=460&v=4" alt="Luana Mora"></img>
+              <div className="user-info">
+                <strong>Luana Mora</strong>
+                <span>ReactJS, React Native, Node.js</span>
+              </div>
+            </header>
+            <p>Uma biografia qualquer</p>
+            <a href="https://github.com/luanamora">Acessar Perfil no Github</a>
+          </li>
         </ul>
       </main>
     </div>
