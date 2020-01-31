@@ -6,6 +6,8 @@ import "./Sidebar.css";
 import "./Main.css";
 
 function App() {
+  const [devs, setDevs] = useState([]);
+
   const [github_username, setGithubUsername] = useState('');
   const [techs, setTechs] = useState('');
   const [latitude, setLatitude] = useState('');
@@ -28,6 +30,14 @@ function App() {
     )
   }, []);
 
+  useEffect(() => {
+    async function loadDevs (){
+      const response = await api.get('/devs');
+      setDevs(response.data);
+    }
+    loadDevs();
+  }), [];
+
   async function handleAddDev(e) {
     e.preventDefault();
 
@@ -37,13 +47,15 @@ function App() {
       latitude,
       longitude,
     })
+    setGithubUsername('');
+    setTechs('');
   }
 
   return (
     <div id="app">
       <aside>
         <strong>Cadastrar</strong>
-        <form>
+        <form onSubmit={handleAddDev}>
           <div className="input-block">
             <label htmlFor="github_username">Usuário do Github</label>
             <input
