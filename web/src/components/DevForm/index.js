@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
-function DevForm({ onSubmit }) {
+function DevForm({onSubmit}) {
     const [github_username, setGithubUsername] = useState('');
-    const [techs, setTechs] = useState('');
     const [latitude, setLatitude] = useState('');
     const [longitude, setLongitude] = useState('');
 
@@ -10,7 +9,6 @@ function DevForm({ onSubmit }) {
         navigator.geolocation.getCurrentPosition(
             (position) => {
                 const { latitude, longitude } = position.coords;
-
                 setLatitude(latitude);
                 setLongitude(longitude);
             },
@@ -37,7 +35,7 @@ function DevForm({ onSubmit }) {
         setTechs('');
     }
 
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={ handleSubmit }>
         <div className="input-block">
             <label htmlFor="github_username">Usuário do Github</label>
             <input
