@@ -35,7 +35,7 @@ function Main() {
         <MapView initialRegion={currentRegion} style={styles.map}>
             <Marker coordinate={{ latitude: -24.5803857, longitude: -53.509473 }}>
                 <Image style={styles.avatar} source={{ uri: 'https://avatars2.githubusercontent.com/u/42422551?s=460&v=4' }}/>
-                <Callout>
+                <Callout >
                     <View style={styles.callout}> 
                         <Text style={styles.devName}>Luana Mora</Text>
                         <Text style={styles.devBio}>Uma bio qualquer</Text>
