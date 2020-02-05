@@ -3,6 +3,7 @@ import MapView, { Marker, Callout } from 'react-native-maps';
 import { StyleSheet, Image, View, Text, TextInput, TouchableOpacity } from 'react-native';
 import { requestPermissionsAsync, getCurrentPositionAsync } from 'expo-location'
 import { MaterialIcons } from '@expo/vector-icons';
+import api from '../services/api';
 
 function Main({ navigation }) {
     const [currentRegion, setCurrentRegion] = useState(null);
@@ -26,6 +27,17 @@ function Main({ navigation }) {
         }
         loadInitialPosition();
     }, []);
+
+    async function loadDevs() {
+        const { latitude, longitude } = currentRegion;
+        const response = await api.get('/search', {
+            params: {
+                latitude,
+                longitude,
+                techs: 'ReactJS'
+            }
+        })
+    }
 
     if (!currentRegion) {
         return null;
@@ -90,7 +102,7 @@ const styles = StyleSheet.create({
     },
     searchForm: {
         position: 'absolute',
-        bottom: 20,
+        top: 20,
         left: 20,
         right: 20,
         zIndex: 5,
@@ -120,7 +132,7 @@ const styles = StyleSheet.create({
         borderRadius: 25,
         justifyContent: 'center',
         alignItems: 'center',
-        marginLef: 15,
+        marginLeft: 15,
     },
 
 })
