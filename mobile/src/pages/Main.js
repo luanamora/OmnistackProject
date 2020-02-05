@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import MapView, { Marker, Callout } from 'react-native-maps';
-import { StyleSheet, Image, View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, Image, View, Text, TextInput, TouchableOpacity, AsyncStorage } from 'react-native';
 import { requestPermissionsAsync, getCurrentPositionAsync } from 'expo-location'
 import { MaterialIcons } from '@expo/vector-icons';
 import api from '../services/api';
 
 function Main({ navigation }) {
+    const [devs, setDevs] = useState([]);
     const [currentRegion, setCurrentRegion] = useState(null);
     useEffect(() => {
         async function loadInitialPosition() {
@@ -34,9 +35,15 @@ function Main({ navigation }) {
             params: {
                 latitude,
                 longitude,
-                techs: 'ReactJS'
+                techs: 'ReactJS',
             }
-        })
+        });
+        setDevs(response.data.devs);
+    }
+
+    async function handleRegionChanged(region){
+        console.log(region);
+        setCurrentRegion(region);
     }
 
     if (!currentRegion) {
@@ -67,7 +74,7 @@ function Main({ navigation }) {
                     autoCapitalize="words"
                     autoCorrect={false}
                 />
-                <TouchableOpacity onPress={() => { }} style={styles.loadButton}>
+                <TouchableOpacity onPress={loadDevs} style={styles.loadButton}>
                     <MaterialIcons name="my-location" size={20} color="#FFF" />
                 </TouchableOpacity>
             </View>
